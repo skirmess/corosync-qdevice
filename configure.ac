@@ -79,7 +79,11 @@ AC_PROG_LN_S
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 PKG_PROG_PKG_CONFIG
-AC_PATH_PROG([BASHPATH], [bash])
+AC_ARG_WITH([bash],
+  [AS_HELP_STRING([--with-bash=PATH],
+    [path to bash on the target system @<:@default=auto-detect@:>@])],
+  [BASHPATH="$withval"],
+  [AC_PATH_PROG([BASHPATH], [bash])])
 AC_CHECK_PROGS([GROFF], [groff])
 
 # Checks for typedefs.
